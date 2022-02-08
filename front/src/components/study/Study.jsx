@@ -68,9 +68,9 @@ function Study() {
             // labelContainer.childNodes[1].innerHTML = "누적 공부시간 : " + total_studied.toString();
             labelContainer.childNodes[1].innerHTML = "누적 공부시간 : " + format_t.getHours() + "시간  " + format_t.getMinutes() + "분  " + format_t.getSeconds() + "초";
         } else if (prediction[1].className == "playing" && 0.9 < prediction[0].probability.toFixed(2)) {
-            labelContainer.childNodes[0].innerHTML = "공부 안하네? 용돈 깎는다 ^^ H: " + cur_t.getHours() + "M: " + cur_t.getMinutes() + "S:" + cur_t.getSeconds();
+            labelContainer.childNodes[0].innerHTML = "공부 안하네? H: " + cur_t.getHours() + "M: " + cur_t.getMinutes() + "S:" + cur_t.getSeconds();
         } else {
-            labelContainer.childNodes[0].innerHTML = "뭐하는지 모르겠네 우리 아들? ^^ CCTV 돌려본다?? ㅎㅎ H: " + cur_t.getHours() + "M: " + cur_t.getMinutes() + "S:" + cur_t.getSeconds();
+            labelContainer.childNodes[0].innerHTML = "뭐하는지 모르겠네  H: " + cur_t.getHours() + "M: " + cur_t.getMinutes() + "S:" + cur_t.getSeconds();
         }
     }
     return (
