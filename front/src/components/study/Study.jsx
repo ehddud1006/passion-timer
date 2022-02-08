@@ -14,6 +14,7 @@ function Study() {
     let total_studied = 0, prev_time, offset_time = 0;
     // Load the image model and setup the webcam
     async function init() {
+        console.log("help")
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
 
@@ -75,7 +76,7 @@ function Study() {
     return (
         <div>
             <div>Teachable Machine Image Model</div>
-            <button type="button" onclick={init}>Start</button>
+            <button type="button" onClick={init}>Start</button>
             <div id="webcam-container"></div>
             <div id="label-container"></div>
             <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
