@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as tf from '@tensorflow/tfjs';
 import * as tmImage from '@teachablemachine/image';
-
+import "./study.css"
 function Study() {
     // More API functions here:
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
@@ -75,10 +75,13 @@ function Study() {
     }
     return (
         <div>
-            <div>Teachable Machine Image Model</div>
-            <button type="button" onClick={init}>Start</button>
-            <div id="webcam-container"></div>
-            <div id="label-container"></div>
+            <div className='passion'>
+                <div>공부하기싫을때, 남들도 하기싫다.</div>
+                <div>그때하는 것이 경쟁력이다.</div>
+                <div id="webcam-container"></div>
+                <div id="label-container"></div>
+                <button type="button" onClick={init}>Start</button>
+            </div>
             <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
             <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>

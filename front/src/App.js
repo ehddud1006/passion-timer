@@ -3,7 +3,7 @@ import TopBar from "./components/topBar/TopBar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SignIn from "./components/singnIn/SignIn";
 import Study from "./components/study/Study";
-
+import TopBarStudy from "./components/topBarStudy/TopBarStudy";
 
 function App() {
 
@@ -34,6 +34,7 @@ function App() {
           <SignIn></SignIn>
         </Route>
         <Route path="/study">
+          <TopBarStudy></TopBarStudy>
           <Study></Study>
         </Route>
       </Switch>

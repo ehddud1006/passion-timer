@@ -14,7 +14,7 @@
     /* 세로 */
     align-items: end;
     /* 가로 */
-    justify-content: end;
+    justify-content: start;
     margin-right: 20px;
     color: white;
     font-family: 'Jua', sans-serif;
@@ -27,7 +27,7 @@
     /* 세로 */
     align-items: end;
     /* 가로 */
-    justify-content: start;
+    justify-content: end;
     margin-right: 20px;
     color: white;
     font-family: 'Jua', sans-serif;
@@ -41,7 +41,7 @@
     justify-content: center;
     color: black;
     font-family: 'Jua', sans-serif;
-    font-size: 24px;
+    font-size: 30px;
 }
 
 .dateType{
@@ -92,6 +92,19 @@
      align-items: center;
     justify-content: center;
     border-radius: 10px;
+    margin-left: 150px;
+    margin-right: 150px;
  }
 
- 
+ .btn2{
+    display: flex;
+    background-color: white;
+    text-decoration: none;
+    color: #011422;
+    width: 70px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+   border-radius: 10px;
+   margin-left: 30px;
+ }

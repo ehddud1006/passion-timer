@@ -1,27 +1,64 @@
+// 익스프레스 
 const express = require("express");
-const TeachableMachine = require("@sashido/teachablemachine-node");
-
-const model = new TeachableMachine({
-    modelUrl: "https://teachablemachine.withgoogle.com/models/r6BBk-hiN/"
-});
-
 const app = express();
-const port = 3000;
 
-app.get("/image/classify", async (req, res) => {
-    const { url } = req.query;
+// dotenv .env 파일을 사용하기 위함
+const dotenv = require("dotenv")
+dotenv.config()
+// dotenv .env 파일을 사용하기 위함
 
-    return model.classify({
-        imageUrl: url,
-    }).then((predictions) => {
-        console.log(predictions);
-        return res.json(predictions);
-    }).catch((e) => {
-        console.error(e);
-        res.status(500).send("Something went wrong!")
-    });
+// json 파일을 보내고 받을 수 있게한다.
+app.use(express.json());
+
+// const authRoute = require("./routes/auth")
+// app.use("/api/auth", authRoute)
+const authRoute = require("./routes/auth")
+app.use("/back/auth", authRoute)
+// const postsRoute = require("./routes/posts")
+// app.use("/api/posts", postsRoute)
+// const categoriesRoute = require("./routes/categories")
+// app.use("/api/categories", categoriesRoute)
+
+const mongoose = require("mongoose")
+// mongoose.connect('mongodb://localhost:27017/test');
+mongoose.connect(process.env.MONGO_URL)
+    .then(console.log("Connect to MongoDB")).catch(err => console.log(err));
+
+
+app.use(express.static('build'))
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/build/index.html')
+})
+// const multer = require("multer")
+// const storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, "images")
+//     }, filename: (req, file, cb) => {
+//         cb(null, req.body.name)
+//     },
+// })
+
+// const upload = multer({ storage: storage });
+// app.post("/api/upload", upload.single("file"), (req, res) => {
+//     res.status(200).json("File has been uploaded");
+// });
+// app.use("/", (req, res) => {
+//     console.log("hey this is main url")
+// })
+
+// const cors = require("cors");
+// const corsOptions = {
+//     origin: true,
+//     credentials: true
+// };
+// app.use(cors(corsOptions));
+// const session = require("express-session");
+// const path = require("path")
+// app.use("/images", express.static(path.join(__dirname, "/images")))
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log("Backend is running.");
 });
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
-});
